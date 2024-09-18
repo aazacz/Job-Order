@@ -3,7 +3,7 @@ const app           = express()
 const cors          = require('cors')
 const cookieparser  = require('cookie-parser')
 require('dotenv').config()
-// const {userRoute}     = require('./Router/UserRoute');
+const {userRoute}     = require('./Router/UserRoute');
 require("./Config/mongodbServer")                     // Connect to MongoDB
 
 
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
 // Routes
-// app.use('/user', userRoute)
+app.use('/api', userRoute)
 
 // Homepage route
 app.get("/",(req,res)=>{
